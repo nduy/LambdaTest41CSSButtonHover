@@ -1,0 +1,166 @@
+/* Global Styles */
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --font: calibri;
+    --size-pri: 1px;
+    --size-sec: 100px;
+    --pinterest-clr: #E60023;
+    --twitter-clr: #1D9BF0;
+    --facebook-clr: #4267B2;
+    --tiktok-clr: linear-gradient(90deg, #ff0050, #00f2ea, #000000);
+    --instagram-clr: linear-gradient(90deg, #405DE6, #5B51D8, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #F56040, #FCAF45, #FFDC80);
+    --slack-clr: linear-gradient(90deg, #36C5F0, #2EB67D, #E01E5A, #ECB22E);
+    --white:#fff;
+}
+
+.main {
+    display: grid;
+    grid-template-columns: repeat(1 1fr);
+    place-items: center;
+    height: 100vh;
+}
+
+body {
+    background-color: rgb(226 232 240);
+}
+
+.shape {
+    display: inline-block;
+    font-family: var(--font);
+    position: relative;
+    margin: 1em 1em;
+    text-align: center;
+    letter-spacing: 3px;
+    text-decoration: none;
+    line-height: 50px;
+    opacity: 1;
+    text-transform: uppercase;
+    padding: 0 3rem;
+    background: var(--twitter-clr);
+    border-radius: 100px;
+    box-shadow: 0 1px 2px 10px rgb(0 0 0 / 0.05);
+}
+
+.shape::before {
+    display: inline-block;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font: var(--fa-font-brands);
+    content: "\f099";
+    color: var(--white);
+    transition: 500ms ease;
+    position: relative;
+    top: 0;
+    left: 0;
+    opacity: 1;
+}
+
+/* Button One [Twitter]*/
+.twitter:hover {
+    background: none;
+    outline: 1px solid var(--twitter-clr);
+}
+
+.twitter:hover::before {
+    transform: skew(10deg) scale(1.5);
+    color: var(--twitter-clr);
+}
+
+
+/* Button Two [pinterest]*/
+.pinterest {
+    background: var(--pinterest-clr); 
+}
+
+.pinterest::before {
+    content: "\f0d2";   
+}
+
+.pinterest:hover::before {
+    transform: rotate(360deg) scale(1.5);
+    /* transform: ; */
+}
+
+
+/* Button Three [facebook]*/
+.facebook {
+    background: var(--facebook-clr);
+}
+
+.facebook::before {
+    content: "\f09a";
+    transition: opacity 0.5s ease-in, transform 0.5s ease-in;
+}
+
+.facebook:hover::before {
+    opacity: 0.5;
+    transform: scale(1.5);
+}
+
+/* Button Four [ticktok]*/
+.tiktok {
+    background: var(--tiktok-clr);
+}
+.tiktok::before {
+    content: "\e07b";
+}
+
+.tiktok:hover::before {
+    transform: skew(20deg, -20deg) scale(1.5);
+}
+
+/* Button Five [instagram]*/
+.instagram {
+    background: var(--instagram-clr);
+    transition: background 0.5s ease;
+}
+
+.instagram::before {
+    content: "\f16d";
+}
+
+.instagram:hover::before {
+    transform: matrix(0, 1, 1, 0, 0, 0) scale(1.5);
+}
+
+.instagram:hover {
+    background-size: 350% 100%;
+    animation-name: flow;
+    animation-duration: 500ms;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes flow {
+            0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
+
+/* Button Six [slack]*/
+.slack {
+    background: var(--slack-clr);
+}
+
+.slack::before {
+    content: "\f198";
+}
+
+.slack:hover::before {
+    opacity: 0.5;
+    transform: translateX(95%) scale(1.5) rotate(360deg);
+}
+
+
+/* Active State */
+.shape:active {
+    transform: translateY(4px);
+}
